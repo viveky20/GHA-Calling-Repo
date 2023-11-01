@@ -1,0 +1,28 @@
+name: Docker Image Pull and Tag
+
+on:
+ workflow_call:
+    
+
+jobs:
+  docker-pull-and-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Check current directory
+        run: pwd
+      - name: Pull Docker Image
+        run: |
+          docker pull hello-world:latest
+        env:
+          image: ${{ github.event.inputs.image_name }}
+      - name: Check current directory
+        run: ./scripts/checkgit-version.sh
+      - run: ./scripts/build.sh
+      - name: Tag Docker Image
+        run: |
+          docker tag hello-world:latest  hello-world:${{ github.run_number }}
+        env:
+          image: ${{ github.event.inputs.image_name }}
