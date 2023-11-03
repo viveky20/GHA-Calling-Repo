@@ -17,7 +17,9 @@ jobs:
           #token: ${{ secrets.GHA_PAT }}
           path: './GHA-Calling-Repo'  
       - name: Check current directory
-        run: pwd
+        run: |
+         ls -la
+         pwd
       - name: Pull Docker Image
         run: |
           docker pull hello-world:latest
