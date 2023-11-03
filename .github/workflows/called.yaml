@@ -20,24 +20,8 @@ jobs:
           repository: viveky20/GHA-Calling-Repo
           ref: main
           #token: ${{ secrets.GHA_PAT }}
-          path: './GHA-Calling-Repo'  
-      - name: Check current directory
-        run: |
-         pwd
-         ls -la
-         pwd
-      - name: Pull Docker Image
-        run: |
-          docker pull hello-world:latest
-        env:
-          image: ${{ github.event.inputs.image_name }}
-      - name: Check current directory
+          path: './GHA-Calling-Repo'
+      - name: Run check-git script
         run: |
          chmod +x GHA-Calling-Repo/scripts/checkgit-version.sh
          ./GHA-Calling-Repo/scripts/checkgit-version.sh
-      - run: ./scripts/build.sh
-      - name: Tag Docker Image
-        run: |
-          docker tag hello-world:latest  hello-world:${{ github.run_number }}
-        env:
-          image: ${{ github.event.inputs.image_name }}
