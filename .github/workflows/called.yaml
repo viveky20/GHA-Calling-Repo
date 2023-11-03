@@ -23,5 +23,5 @@ jobs:
           path: './GHA-Calling-Repo'
       - name: Run check-git script
         run: |
-         chmod +x GHA-Calling-Repo/scripts/checkgit-version.sh
-         ./GHA-Calling-Repo/scripts/checkgit-version.sh
+          chmod +x GHA-Calling-Repo/scripts/checkgit-version.sh
+          ./GHA-Calling-Repo/scripts/checkgit-version.sh
