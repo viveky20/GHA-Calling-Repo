@@ -32,7 +32,9 @@ jobs:
         env:
           image: ${{ github.event.inputs.image_name }}
       - name: Check current directory
-        run: ./GHA-Calling-Repo/scripts/checkgit-version.sh
+        run: |
+         chmod +x GHA-Calling-Repo/scripts/checkgit-version.sh
+         ./GHA-Calling-Repo/scripts/checkgit-version.sh
       - run: ./scripts/build.sh
       - name: Tag Docker Image
         run: |
