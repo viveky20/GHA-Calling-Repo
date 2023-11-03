@@ -10,7 +10,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with: 
+          repository: viveky20/GHA-Calling-Repo
+          ref: main
+          #token: ${{ secrets.GHA_PAT }}
+          path: './GHA-Calling-Repo'  
       - name: Check current directory
         run: pwd
       - name: Pull Docker Image
