@@ -5,7 +5,7 @@ on:
     
 
 jobs:
-  docker-pull-and-tag:
+  test-resuable-scripts:
     runs-on: ubuntu-latest
 
     steps:
